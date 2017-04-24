@@ -21,12 +21,14 @@
 // });
 
 //TO ECHO A NAME//
-Route::get('/sayhello/{name?}', function($name) {
+// Route::get('/sayhello/{name?}', function($name) {
 
-	$data = ['name'=> $name];
+// 	$data = ['name'=> $name];
 
-    return view('my-first-view', $data);
-});
+//     return view('my-first-view', $data);
+// });
+
+
 
 // Route::get('/sayhello', function()
 // {
@@ -52,19 +54,28 @@ Route::get('/sayhello/{name?}', function($name) {
 //     return "Hello, $name!";
 // });
 
-//UPPERCASE//
-// Route::get('/uppercase/{word}', function($word) {
-// 	return strtoupper($word);
-// });
+// UPPERCASE//
+Route::get('/uppercase/{word}', function($word) {
+	$data = ['word' => $word, 'uppercase' => strtoupper($word)];
 
-//INCREMENT//
-// Route::get('/increment/{number}', function($number) {
-// 	if(is_numeric($number)) {
-// 		return $number + 1;
-// 	} else {
-// 		return $number . "is not a number and cannot be incremented.";
-// 	}
-// });
+	return view('uppercase', $data);
+	//return strtoupper($word);
+});
+
+
+// INCREMENT//
+Route::get('/increment/{number}', function($number) {
+	$data = ['number' => $number];
+		
+	if(is_numeric($number)) {
+		$increment = $number + 1;
+	} else {
+		$increment = $number . "is not a number and cannot be incremented.";
+	}
+	$data += ['increment' => $increment];
+
+	return view('increment', $data);
+});
 
 //ADD//
 // Route::get('/add/{num1}/{num2}', function ($num1, $num2) {
@@ -76,12 +87,12 @@ Route::get('/sayhello/{name?}', function($name) {
 // });
 
 //RANDOM NUMBER//
-Route::get('/rolldice/{guess?}', function($guess=null) {
-    $random = mt_rand(1,6);
-    $data = array('random' => $random, 'guess' => $guess);
+// Route::get('/rolldice/{guess?}', function($guess=null) {
+//     $random = mt_rand(1,6);
+//     $data = array('random' => $random, 'guess' => $guess);
 
-    return view('roll-dice', $data);
-});
+//     return view('roll-dice', $data);
+// });
 
 // Route::get('/sayhello/{name}', function($name)
 // {
