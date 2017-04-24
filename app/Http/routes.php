@@ -76,15 +76,23 @@ Route::get('/sayhello/{name?}', function($name) {
 // });
 
 //RANDOM NUMBER//
-Route::get('/rolldice/{random}', function($random) {
-    int rand ( 1 $min , 6 $max )
+Route::get('/rolldice/{guess?}', function($guess=null) {
+    $random = mt_rand(1,6);
+    $data = array('random' => $random, 'guess' => $guess);
 
-    }
+    return view('roll-dice', $data);
+});
 
-    return view('roll-dice.php');
-})
+// Route::get('/sayhello/{name}', function($name)
+// {
+//     if ($name == "Chris") {
+//         return Redirect::to('/');
 
+//     }
 
+//     $data = array('name' => $name);
+//     return view('my-first-view', $data);
+// });
 
 
 
