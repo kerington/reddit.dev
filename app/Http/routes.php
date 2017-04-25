@@ -11,9 +11,12 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
+Route::resource('posts', 'PostsController'); //A resource controller
+
+
+Route::get('/', function () {
+    return view('welcome');
+});
 
 // Route::get('/sayhello/{name}', function($name)
 // {
