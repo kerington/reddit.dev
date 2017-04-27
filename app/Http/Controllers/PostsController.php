@@ -17,7 +17,7 @@ class PostsController extends Controller
      */
     public function index()
     {
-        $posts = \App\Models\Post::all();
+        $posts = \App\Models\Post::paginate(4);
         return view ('posts.index', ['posts' => $posts]);
     }
 
@@ -35,7 +35,8 @@ class PostsController extends Controller
     {
         $rules = [
         'title' => 'required|max:100',
-        'url'   => 'required'
+        'url' => 'required',
+        'content' => 'required',
     ];
 
     $this->validate($request, $rules);
@@ -43,14 +44,14 @@ class PostsController extends Controller
         $post = new \App\Models\Post();
         $post->title = $request->title;
         $post->content = $request->content;
-        $post->url = $request->website;
+        $post->url = $request->url;
         $post->created_by = 1;
         $post->save();
 
         $data = [];
         $data['post'] = $post;
 
-        return view('posts.show')->width($data);
+        return view('posts.show')->with($data);
         // return redirect()->action('PostsController@index');
     }
 
@@ -73,7 +74,25 @@ class PostsController extends Controller
 
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'title' => 'required|max:100',
+            'url'   => 'required|url',
+            'content'   => 'required',
+        ];
+
+        $this->validate($request, $rules);
+
+        $post = \App\Models\Post::find($id);
+        $post->title = $request->title;
+        $post->url = $request->website;
+        $post->content = $request->content;
+        $post->created_by = $request->created_by;
+        $post->save();
+
+        $data = [];
+        $data['post'] = $post;
+
+        return view('posts.show')->with($data);
     }
 
     /**
