@@ -1,5 +1,5 @@
 @extends('layouts.master')
 
 @section('content')
-	{{$word}} {{$uppercased}}
+	{{$post->title}}
 @stop

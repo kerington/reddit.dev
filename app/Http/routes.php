@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -10,105 +9,61 @@
 | and give it the controller to call when that URI is requested.
 |
 */
+// PageController
+// Router
+/*switch ($path) {
+    case '/': // in Laravel it looks like Route::get('/', function () {
+        // our controller logic
+        return  view('welcome');
+        break;
+    case '/ads/new': // Route::get('/ads/new', function () {
+        break;
+    case '/ads/edit': // Route::get('/ads/edit', function () {
+        break;
+}*/
 
-Route::resource('posts', 'PostsController'); //A resource controller
+Route::get('/from/{start}/to/{end}', 'HomeController@showNumbers');
 
+Route::get('/', 'HomeController@showWelcomePage');
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/sayhello/{name?}', 'HomeController@sayHello');
+
+Route::get('/uppercase/{word}' /* path */, /* controller@method */'HomeController@uppercased');
+
+Route::get('/rolldice/{guess}', 'ExampleController@rollDice');
+
+Route::get('/increment/{number?}', 'HomeController@increment');
+
+Route::get('/add/{num1}/{num2}', 'ExampleController@addition');
+
+/*// CRUD operations for posts
+Route::get('/posts', 'PostsController@index'); // show all the posts
+Route::get('/posts/create', 'PostsController@create'); // show the form to create a post
+Route::post('/posts', 'PostsController@store'); // save the new post
+Route::get('/posts/{posts}', 'PostsController@show'); // show a specific post (by id)
+Route::get('/posts/{posts}/edit', 'PostsController@edit'); // show the form to edit a post
+Route::put('/posts/{posts}', 'PostsController@update'); // update the post in the database
+Route::delete('/posts/{posts}', 'PostsController@destroy'); // delete a post*/
+
+Route::resource('posts', 'PostsController');  // A resource controller
+
+// Route::resource('students', 'StudentsController');  // A resource controller
+
+Route::get('orm-test', function ()
+{
+    /*$user = new \App\User();
+    $user->name = 'Keri';
+    $user->email = 'kmchesire@gmail.com';
+    $user->password = 'password';
+    $user->save();
+    $post = new \App\Models\Post();
+    $post->title = 'My second post';
+    $post->content = 'My second post content';
+    $post->url = 'http://codeup.com';
+    $post->created_by = $user->id;
+    $post->save();*/
+    // return \App\Models\Post::all();
+    $post = \App\Models\Post::find(3); // I will need to call find first if I want to update
+    $post->content = 'Some other content';
+    $post->save(); // update
 });
-
-// Route::get('/sayhello/{name}', function($name)
-// {
-//     return view('my-first-view');
-// });
-
-//TO ECHO A NAME//
-// Route::get('/sayhello/{name?}', function($name) {
-
-// 	$data = ['name'=> $name];
-
-//     return view('my-first-view', $data);
-// });
-
-
-
-// Route::get('/sayhello', function()
-// {
-//     return "Hello, Codeup!";
-// });
-
-// Route::get('/sayhello/{name}', function($name)
-// {
-//     return "Hello, $name!";
-// });
-
-// Route::get('/sayhello/{name?}', function($name = 'World')
-// {
-//     return "Hello, $name!";
-// });
-
-// Route::get('/sayhello/{name}', function($name)
-// {
-//     if ($name == "Chris") {
-//         return redirect('/');
-//     }
-
-//     return "Hello, $name!";
-// });
-
-// UPPERCASE//
-Route::get('/uppercase/{word}', function($word) {
-	$data = ['word' => $word, 'uppercase' => strtoupper($word)];
-
-	return view('uppercase', $data);
-	//return strtoupper($word);
-});
-
-
-// INCREMENT//
-Route::get('/increment/{number}', function($number) {
-	$data = ['number' => $number];
-		
-	if(is_numeric($number)) {
-		$increment = $number + 1;
-	} else {
-		$increment = $number . "is not a number and cannot be incremented.";
-	}
-	$data += ['increment' => $increment];
-
-	return view('increment', $data);
-});
-
-//ADD//
-// Route::get('/add/{num1}/{num2}', function ($num1, $num2) {
-// 	if(is_numeric($num1) && is_numeric($num2)) {
-// 		return $num1 + $num2;
-// 		} else {
-// 			return "Both parameters must be numeric.";
-// 		}
-// });
-
-//RANDOM NUMBER//
-// Route::get('/rolldice/{guess?}', function($guess=null) {
-//     $random = mt_rand(1,6);
-//     $data = array('random' => $random, 'guess' => $guess);
-
-//     return view('roll-dice', $data);
-// });
-
-// Route::get('/sayhello/{name}', function($name)
-// {
-//     if ($name == "Chris") {
-//         return Redirect::to('/');
-
-//     }
-
-//     $data = array('name' => $name);
-//     return view('my-first-view', $data);
-// });
-
-
-
-
-

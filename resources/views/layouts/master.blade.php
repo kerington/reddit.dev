@@ -14,7 +14,16 @@
 </head>
 
 <body>
-
+<nav>
+	<ul>
+		<li>
+			<a href="{{ action('HomeController@increment', [50]) }}">Increment</a>
+		</li>
+		<li>
+			<a href="{{ action('HomeController@showNumbers', [2, 12]) }} ">Two Numbers</a>
+		</li>
+	</ul>
+</nav>
 	<article>
 		<header>
 		&nbsp;&nbsp;
@@ -23,11 +32,10 @@
 
     @yield('content')
 
-	<div id="footer">
+<div id="footer">
 	<hr>
-	<p>Created By: Keri Marie Chesire</p>
-	<p>Contact me <a href="mailto:kmchesire@gmail.com">
-	here!</a>.</p>
+		<p>Created By: Keri Marie Chesire</p>
+		<p>Contact me <a href="mailto:kmchesire@gmail.com"> here!</a>.</p>
 </div>
 
 </body>

@@ -1,5 +1,3 @@
-@extends('directory.view-name')
-
 @extends('layouts.master')
 
 @section('content')

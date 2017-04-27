@@ -19,8 +19,21 @@ Route::get('/add/{num1}/{num2}', 'ExampleController@addition');
 Route::resource('posts', 'PostsController'); //A resource controller
 
 // Add a return value to each of the methods in the PostsController that describes what the method should do based on the table in this lesson.
-// For example, we said that the index method should return a list of all posts, so going to reddit.dev/posts should return the string 'A listing of all posts'.
+	// For example, we said that the index method should return a list of all posts, so going to reddit.dev/posts should return the string 'A listing of all posts'.
+
 // Access the GET routes (using info from the table) and see if you get the appropriate returns.
+
+
+
+
+public function create () {
+	return view('students.create');
+}
+
+
+
+
+
 
 
 ?>

@@ -17,7 +17,8 @@ class PostsController extends Controller
      */
     public function index()
     {
-        return "This should show all the posts."; //IS GET
+        $posts = \App\Models\Post::all();
+        return view ('posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -27,29 +28,36 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return "Show a form for creating a post."; //IS GET
+        return view('posts.create'); //IS GET
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $rules = [
+        'title' => 'required|max:100',
+        'url'   => 'required'
+    ];
+
+    $this->validate($request, $rules);
+
+        $post = new \App\Models\Post();
+        $post->title = $request->title;
+        $post->content = $request->content;
+        $post->url = $request->website;
+        $post->created_by = 1;
+        $post->save();
+
+        $data = [];
+        $data['post'] = $post;
+
+        return view('posts.show')->width($data);
+        // return redirect()->action('PostsController@index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
-        return "Shows an individual post from the psots table with the id of $id"; //IS GET
+        $post = \App\Models\Post::find($id);
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -60,16 +68,9 @@ class PostsController extends Controller
      */
     public function edit($id)
     {
-        return "This will present the current data for the post of id $id and output that data onto a form inside the input fields." //IS GET
+        return view('posts.edit');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
@@ -83,15 +84,13 @@ class PostsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        return 'Deleting post with ID ' . $id;
+
     }
 }
 
 
-// Add a return value to each of the methods in the PostsController that describes what the method should do based on the table in this lesson.
-    // For example, we said that the index method should return a list of all posts, so going to reddit.dev/posts should return the string 'A listing of all posts'.
-
-// Access the GET routes (using info from the table) and see if you get the appropriate returns.
-
-
+// Update the store action on the PostsController to validate the inputs before creating the new post.
+// Upon validation failure, redirect back to the create action with the validation errors. Update the create view so that all the validation errors are shown to the user.
+// Reference the laravel docs on validation rules and add a validation rule to ensure that the 'url' is a valid url.
 
