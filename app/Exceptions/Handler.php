@@ -15,6 +15,7 @@ class Handler extends ExceptionHandler
      *
      * @var array
      */
+
     protected $dontReport = [
         HttpException::class,
         ModelNotFoundException::class,
@@ -28,9 +29,15 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return void
      */
+
     public function report(Exception $e)
     {
-        return parent::report($e);
+        if ($e instanceof \NotFoundHttpException) {
+            dd($e->getMessage());
+        } else {
+            return parent::report($e);
+            
+        }
     }
 
     /**
@@ -40,6 +47,7 @@ class Handler extends ExceptionHandler
      * @param  \Exception  $e
      * @return \Illuminate\Http\Response
      */
+
     public function render($request, Exception $e)
     {
         if ($e instanceof ModelNotFoundException) {

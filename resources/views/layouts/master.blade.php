@@ -1,18 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Reddit</title>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reddit!</title>
     <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
 <!-- CUSTOM FONT -->
 <link href="https://fonts.googleapis.com/css?family=Francois+One|Open+Sans+Condensed:300" rel="stylesheet">
-
-<!-- jQuery -->
-<script
-  src="https://code.jquery.com/jquery-3.2.1.js"
-  integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE="
-  crossorigin="anonymous"></script>
 
 </head>
 
@@ -20,49 +17,42 @@
 	<style type="text/css">
 		body {
 			background-color: #EED8C9;
-			font-family: Lora;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+
+		.nav {
+			width: 100%;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 1.3em;
+		}
+
+		.nav ul {
+			list-style: none;
 			text-align: center;
 		}
 
-.nav {
-  /*background-color: black;*/
-  width: 100%;
-  /*margin-top: -20px;*/
-  text-transform: uppercase;
-  font-size: 1.3em;
-  font-family: 'BenchNine', 'Arial Narrow', sans-serif;
-}
-
-.nav ul {
-  list-style: none;
-  text-align: center;
-}
-
-.nav li {
-  /*font-family: 'Yanone Kaffeesatz', 'Arial Narrow', sans-serif;*/
-  font-size: 1em;
-  line-height: 30px;
-  height: 30px;
-}
- 
-.nav a {
-  text-decoration: none;
-  color: white;
-  display: block;
-}
- 
-.nav a:hover {
-  color: white; /*change nav bar TEXT color when hovered*/
-  outline: none;
-}
- 
-.nav a.active {
-  color: black;
-  cursor: default;
-}
+		.nav li {
+			display: inline-block;
+			font-size: 1em;
+			line-height: 30px;
+			height: 30px;
+		}
+		 
+		.nav a {
+			text-decoration: none;
+			color: #727077;
+			display: block;
+		}
+		 
+		.nav a.active {
+			color: black;
+			cursor: default;
+		}
 
 		#post_box {
-			border: 10px solid transparent;
+			text-align: center;
+			border: 17px solid transparent;
 			border-image: url(wood.jpg) 30 round;
 			border-image-repeat: stretch;
 			background-color: #727077;
@@ -73,46 +63,92 @@
 		#post_title {
 			font-size: 5em;
 			color: #E99787;
+			font-family: 'Francois One', sans-serif;
+		}
+
+		#post_title a{
+			color: #E99787;
+			font-family: 'Francois One', sans-serif;
 		}
 
 		.post_content {
-			font-size: 2em;
+			font-size: 1.6em;
 			color: #EED8C9;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+
+		a {
+			/*font-size: 1.6em;*/
+			color: #EED8C9;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+
+		a:hover {
+			/*font-size: 1.6em;*/
+			color: #E99787;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		
+		.click_to_edit {
+			font-size: 1em;
+			text-align: right;
+			color: #EED8C9;
+			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
 		.post_url {
 			font-size: 1em;
 			color: #EED8C9;
+			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
-/*font-family: 'Francois One', sans-serif;
-font-family: 'Open Sans Condensed', sans-serif;
+		.footer {
+			text-align: center;
+		}
+
+/*
+
 */
 	</style>
 	<div class="nav">
 		<ul>
 			<li>
-				<a href="{{ action('HomeController@increment', [50]) }}">Increment</a>
+				<a href="{{ action('PostsController@index') }}">Home</a>
 			</li>
+			&nbsp;&nbsp;&nbsp;
 			<li>
-				<a href="{{ action('HomeController@showNumbers', [2, 12]) }} ">Two Numbers</a>
+				<a href="{{ action('PostsController@create', [2, 12]) }} ">Create a post</a>
 			</li>
 		</ul>
 	</div>
-		<article>
-			<header>
-			&nbsp;&nbsp;
-			</header>
-		</article>
 
-	    @yield('content')
+	<article>
+		<header>
+		&nbsp;&nbsp;
+		</header>
+	</article>
+
+    <main class="container">
+        @if (Session::has('successMessage'))
+            <div class="alert alert-success">{{ session('successMessage') }}</div>
+        @endif
+        @if (Session::has('errorMessage'))
+            <div class="alert alert-danger">{{ session('errorMessage') }}</div>
+        @endif
+
+
+        @yield('content')
+    </main>
 
 	<div id="footer">
 		<hr>
-			<p>Created By: Keri Marie Chesire</p>
-			<p>Contact me <a href="mailto:kmchesire@gmail.com"> here!</a>.</p>
+			<p class='footer'><a href="mailto:kmchesire@gmail.com">Created By: Keri Marie Chesire</a></p>
 	</div>
 
-</body>
+<!-- minified jQuery -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
 </html>
