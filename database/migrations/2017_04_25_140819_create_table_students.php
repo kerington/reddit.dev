@@ -21,3 +21,4 @@ class CreateTableStudents extends Migration
         // drop tables, or undo changes
         Schema::drop('students');
     }
+}
