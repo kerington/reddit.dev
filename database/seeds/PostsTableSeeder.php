@@ -15,7 +15,7 @@ class PostsTableSeeder extends Seeder
 				'title' => $faker->realText(mt_rand (10, 15)),
 				'url' => $faker->url,
 				'content' => $faker->realText(mt_rand (50, 1000)),
-				'created_by' => mt_rand (2, 100)
+				'created_by' => \App\User::all()->random()->id,
 			]);
 		}
 	}
