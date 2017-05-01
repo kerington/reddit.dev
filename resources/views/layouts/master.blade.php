@@ -16,7 +16,7 @@
 <body>
 	<style type="text/css">
 		body {
-			background-color: #EED8C9;
+			background-color: white;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
@@ -52,53 +52,55 @@
 
 		#post_box {
 			text-align: center;
-			border: 17px solid transparent;
-			border-image: url(wood.jpg) 30 round;
+			border: 1px solid black;
+			/*border-image: url(wood.jpg) 30 round;*/
 			border-image-repeat: stretch;
-			background-color: #727077;
+			background-color: white;
 			margin-top: 10px;
 			margin-bottom: 10px;
+			margin-right: 10px;
+			margin-left: 10px;
 		}
 
 		#post_title {
 			font-size: 5em;
-			color: #E99787;
+			color: #022b6d;
 			font-family: 'Francois One', sans-serif;
 		}
 
 		#post_title a{
-			color: #E99787;
+			color: #022b6d;
 			font-family: 'Francois One', sans-serif;
 		}
 
 		.post_content {
 			font-size: 1.6em;
-			color: #EED8C9;
+			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
 		a {
 			/*font-size: 1.6em;*/
-			color: #EED8C9;
+			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
 		a:hover {
 			/*font-size: 1.6em;*/
-			color: #E99787;
+			color: #727077;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
 		.click_to_edit {
 			font-size: 1em;
 			text-align: right;
-			color: #EED8C9;
+			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
 		.post_url {
 			font-size: 1em;
-			color: #EED8C9;
+			color: #022b6d;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 

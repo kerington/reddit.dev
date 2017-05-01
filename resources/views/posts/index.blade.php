@@ -4,7 +4,7 @@
 
 	@foreach($posts as $post)
 		<a href="{{ action('PostsController@show', $post->id) }}">
-			<div class="col-xs-12" id="post_box">
+			<div class="col-xs-4" id="post_box">
 				<div class="col-xs-12" id="post_title">{{$post->title}}</div>
 				<br>
 
