@@ -108,9 +108,6 @@
 			text-align: center;
 		}
 
-/*
-
-*/
 	</style>
 	<div class="nav">
 		<ul>
@@ -120,6 +117,10 @@
 			&nbsp;&nbsp;&nbsp;
 			<li>
 				<a href="{{ action('PostsController@create', [2, 12]) }} ">Create a post</a>
+			</li>
+			&nbsp;&nbsp;&nbsp;
+			<li>
+				<a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
 			</li>
 		</ul>
 	</div>

@@ -28,6 +28,7 @@ class AuthController extends Controller
     /* This is optional if you used the default values in your routes.php file */
     protected $loginPath = '/login';
 
+
     /**
      * Create a new authentication controller instance.
      *
@@ -38,12 +39,6 @@ class AuthController extends Controller
         $this->middleware('guest', ['except' => 'getLogout']);
     }
 
-    /**
-     * Get a validator for an incoming registration request.
-     *
-     * @param  array  $data
-     * @return \Illuminate\Contracts\Validation\Validator
-     */
     protected function validator(array $data)
     {
         return Validator::make($data, [
@@ -53,12 +48,6 @@ class AuthController extends Controller
         ]);
     }
 
-    /**
-     * Create a new user instance after a valid registration.
-     *
-     * @param  array  $data
-     * @return User
-     */
     protected function create(array $data)
     {
         return User::create([
@@ -67,4 +56,5 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
         ]);
     }
+
 }
