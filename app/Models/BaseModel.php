@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Model;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Carbon\Carbon\;
+use Carbon\Carbon;
 
 class BaseModel extends Model
 {

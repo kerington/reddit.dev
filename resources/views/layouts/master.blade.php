@@ -50,9 +50,23 @@
 			cursor: default;
 		}
 
+		#container {
+			width: 100%;
+		}
+		.search_bar {
+			width: 50%;
+			float: left;
+		}
+
+		.buttons {
+			width: 50%;
+			float: right;
+		}
+
 		#post_box {
 			text-align: center;
 			border: 1px solid black;
+			width: 30%;
 			/*border-image: url(wood.jpg) 30 round;*/
 			border-image-repeat: stretch;
 			background-color: white;
@@ -108,75 +122,7 @@
 			text-align: center;
 		}
 
-		@media screen and (max-width: 800px) {
-		.nav {
-			width: 100%;
-			text-transform: uppercase;
-			text-align: center;
-			font-size: 3vw;
-		}
-
-		.nav li {
-			display: inline-block;
-			font-size: 3vw;
-			line-height: 30px;
-			height: 30px;
-		}
-		 
-		.nav a {
-			text-decoration: none;
-			color: #727077;
-			display: block;
-		}
-		 
-		.nav a.active {
-			color: black;
-			cursor: default;
-		}
-
-		#post_box {
-				text-align: center;
-				border: 1px solid black;
-				/*border-image: url(wood.jpg) 30 round;*/
-				border-image-repeat: stretch;
-				background-color: white;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				margin-right: 10px;
-				margin-left: 10px;
-			}
-
-		#post_title {
-			font-size: 5.5vw;
-			color: #337AB7;
-			font-family: 'Francois One', sans-serif;
-		}
-
-		#post_title a{
-			color: #337AB7;
-			font-family: 'Francois One', sans-serif;
-		}
-
-		.post_content {
-			font-size: 3vw;
-			color: #72707E;
-			font-family: 'Open Sans Condensed', sans-serif;
-		}
-		.click_to_edit {
-			font-size: 3vw;
-			text-align: right;
-			color: #72707E;
-			font-family: 'Open Sans Condensed', sans-serif;
-		}
-		
-		.post_url {
-			font-size: 2.1vw;
-			color: #337AB7;
-			font-family: 'Open Sans Condensed', sans-serif;
-			}
-		}
-
-		@media screen and (max-width: 650px) {
+			@media screen and (max-width: 800px) {
 			.nav {
 				width: 100%;
 				text-transform: uppercase;
@@ -190,18 +136,29 @@
 				line-height: 30px;
 				height: 30px;
 			}
+			 
+			.nav a {
+				text-decoration: none;
+				color: #727077;
+				display: block;
+			}
+			 
+			.nav a.active {
+				color: black;
+				cursor: default;
+			}
 
 			#post_box {
-				text-align: center;
-				border: 1px solid black;
-				/*border-image: url(wood.jpg) 30 round;*/
-				border-image-repeat: stretch;
-				background-color: white;
-				margin-top: 10px;
-				margin-bottom: 10px;
-				margin-right: 10px;
-				margin-left: 10px;
-			}
+					text-align: center;
+					border: 1px solid black;
+					/*border-image: url(wood.jpg) 30 round;*/
+					border-image-repeat: stretch;
+					background-color: white;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					margin-right: 10px;
+					margin-left: 10px;
+				}
 
 			#post_title {
 				font-size: 5.5vw;
@@ -230,8 +187,65 @@
 				font-size: 2.1vw;
 				color: #337AB7;
 				font-family: 'Open Sans Condensed', sans-serif;
+				}
 			}
-		}
+
+			@media screen and (max-width: 650px) {
+				.nav {
+					width: 100%;
+					text-transform: uppercase;
+					text-align: center;
+					font-size: 3vw;
+				}
+
+				.nav li {
+					display: inline-block;
+					font-size: 3vw;
+					line-height: 30px;
+					height: 30px;
+				}
+
+				#post_box {
+					text-align: center;
+					border: 1px solid black;
+					/*border-image: url(wood.jpg) 30 round;*/
+					border-image-repeat: stretch;
+					background-color: white;
+					margin-top: 10px;
+					margin-bottom: 10px;
+					margin-right: 10px;
+					margin-left: 10px;
+				}
+
+				#post_title {
+					font-size: 5.5vw;
+					color: #337AB7;
+					font-family: 'Francois One', sans-serif;
+				}
+
+				#post_title a{
+					color: #337AB7;
+					font-family: 'Francois One', sans-serif;
+				}
+
+				.post_content {
+					font-size: 3vw;
+					color: #72707E;
+					font-family: 'Open Sans Condensed', sans-serif;
+				}
+				.click_to_edit {
+					font-size: 3vw;
+					text-align: right;
+					color: #72707E;
+					font-family: 'Open Sans Condensed', sans-serif;
+				}
+				
+				.post_url {
+					font-size: 2.1vw;
+					color: #337AB7;
+					font-family: 'Open Sans Condensed', sans-serif;
+				}
+			}
 
 	</style>
 	<div class="nav">

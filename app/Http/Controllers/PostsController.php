@@ -22,15 +22,25 @@ class PostsController extends Controller
     }
 
     //**INDEX FUNCTION**//
-    public function index()
+    public function index(Request $request)
     {
         // $posts = App\Models\Post::with('user')->get();
-        $posts = Post::with('user')->paginate(6);
+        if ($request->has('search')) {
+            $posts = Post::join('users', 'created_by', '=', 'users.id')
+            ->where('title', 'LIKE', "%$request->search%")
+            ->orWhere('name', 'LIKE', "%$request->search%")
+            ->orderBy('created_by', 'ASC')
+            ->paginate(6);
+        } else {
+            $posts = Post::orderBy('created_by', 'ASC')->paginate(6);
+        }
 
-        $data = [];
-        $data['posts'] = $posts;
+        // $posts = Post::with('user')->paginate(6);
 
-        return view('posts.index')->with($data);
+        // $data = [];
+        // $data['posts'] = $posts;
+
+        // return view('posts.index')->with($data);
     }
 
 
