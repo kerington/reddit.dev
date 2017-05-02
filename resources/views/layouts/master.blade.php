@@ -24,7 +24,7 @@
 			width: 100%;
 			text-transform: uppercase;
 			text-align: center;
-			font-size: 1.3em;
+			/*font-size: 1vw;*/
 		}
 
 		.nav ul {
@@ -34,7 +34,7 @@
 
 		.nav li {
 			display: inline-block;
-			font-size: 1em;
+			font-size: 2vw;
 			line-height: 30px;
 			height: 30px;
 		}
@@ -63,49 +63,174 @@
 		}
 
 		#post_title {
-			font-size: 5em;
-			color: #022b6d;
+			font-size: 4vw;
+			color: #337AB7;
 			font-family: 'Francois One', sans-serif;
 		}
 
 		#post_title a{
-			color: #022b6d;
+			color: #337AB7;
 			font-family: 'Francois One', sans-serif;
 		}
 
 		.post_content {
-			font-size: 1.6em;
+			font-size: 1.8vw;
 			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
 		a {
-			/*font-size: 1.6em;*/
+			/*font-size: 1.6vw;*/
 			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
 		a:hover {
-			/*font-size: 1.6em;*/
+			/*font-size: 1.6vw;*/
 			color: #727077;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
 		.click_to_edit {
-			font-size: 1em;
+			font-size: 1vw;
 			text-align: right;
 			color: #72707E;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
 		.post_url {
-			font-size: 1em;
-			color: #022b6d;
+			font-size: 1vw;
+			color: #337AB7;
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 
 		.footer {
 			text-align: center;
+		}
+
+		@media screen and (max-width: 800px) {
+		.nav {
+			width: 100%;
+			text-transform: uppercase;
+			text-align: center;
+			font-size: 3vw;
+		}
+
+		.nav li {
+			display: inline-block;
+			font-size: 3vw;
+			line-height: 30px;
+			height: 30px;
+		}
+		 
+		.nav a {
+			text-decoration: none;
+			color: #727077;
+			display: block;
+		}
+		 
+		.nav a.active {
+			color: black;
+			cursor: default;
+		}
+
+		#post_box {
+				text-align: center;
+				border: 1px solid black;
+				/*border-image: url(wood.jpg) 30 round;*/
+				border-image-repeat: stretch;
+				background-color: white;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+
+		#post_title {
+			font-size: 5.5vw;
+			color: #337AB7;
+			font-family: 'Francois One', sans-serif;
+		}
+
+		#post_title a{
+			color: #337AB7;
+			font-family: 'Francois One', sans-serif;
+		}
+
+		.post_content {
+			font-size: 3vw;
+			color: #72707E;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		.click_to_edit {
+			font-size: 3vw;
+			text-align: right;
+			color: #72707E;
+			font-family: 'Open Sans Condensed', sans-serif;
+		}
+		
+		.post_url {
+			font-size: 2.1vw;
+			color: #337AB7;
+			font-family: 'Open Sans Condensed', sans-serif;
+			}
+		}
+
+		@media screen and (max-width: 650px) {
+			.nav {
+				width: 100%;
+				text-transform: uppercase;
+				text-align: center;
+				font-size: 3vw;
+			}
+
+			.nav li {
+				display: inline-block;
+				font-size: 3vw;
+				line-height: 30px;
+				height: 30px;
+			}
+
+			#post_box {
+				text-align: center;
+				border: 1px solid black;
+				/*border-image: url(wood.jpg) 30 round;*/
+				border-image-repeat: stretch;
+				background-color: white;
+				margin-top: 10px;
+				margin-bottom: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+			}
+
+			#post_title {
+				font-size: 5.5vw;
+				color: #337AB7;
+				font-family: 'Francois One', sans-serif;
+			}
+
+			#post_title a{
+				color: #337AB7;
+				font-family: 'Francois One', sans-serif;
+			}
+
+			.post_content {
+				font-size: 3vw;
+				color: #72707E;
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
+			.click_to_edit {
+				font-size: 3vw;
+				text-align: right;
+				color: #72707E;
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
+			
+			.post_url {
+				font-size: 2.1vw;
+				color: #337AB7;
+				font-family: 'Open Sans Condensed', sans-serif;
+			}
 		}
 
 	</style>

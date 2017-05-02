@@ -1,0 +1,85 @@
+Accessors/Mutators are functions on models that run automatically for certain conditions
+
+Get created_at timestamp from the DB and make sure to always output it in a format with the full name of the day
+
+created_at YYYY-MM-DD:Hi:s
+
+created_at data -> function -> output Wednesday, June 5th
+
+Accessor is a function on a model that accesses data from that model's table and transforms it. This function is called automatically.
+
+Mutator is a function on a model that fires a function automatically on a given property of the object in order to save a transformed version to the db table.
+
+Hash::make("my-crummy-password")
+
+Accessors run (automatically) on data after we access it from the DB
+Mutators run (automatically) on data before we insety/update it into the DB
+	- If you find yourself writing something over and over for the database, put it in a mutator!
+
+----
+
+public function getCreatedAtAttribute($value)
+{
+	$utc = \Carbon\Carbon::createFromFormat($this->getDateFormat(), $value);
+	return $utc->setTimezone('America/Chicago');
+}
+
+
+
+
+
+------------------
+
+How to build Relationships
+------------------
+
+Step 1:
+	Stop and think and talk about the things you're relating.
+
+1:1
+username/password
+
+1:Many
+One User has many Posts
+Each post belongs to one and only one user
+(the table that is the many is the one that has the foreign key)
+
+Many to Many
+A single Blog Post has many Tags
+A single Tag can have many Blog Posts
+(the table that has foreign keys to both tags and posts is a new table called post_tag)
+
+Step 2:
+	Add necessary foreign keys and then specify them as such in migrations
+
+Step 3:
+	Go to the models and add relationship functions
+
+EXAMPLE:
+
+//on User.php
+public function posts()
+{
+    return $this->hasMany('App\Models\Post', 'created_by');
+}
+
+// on Post.php
+public function user()
+{
+return $this->belongsTo('App\User', 'created_by');
+}
+
+
+Punchline:
+
+$post->user gets you the user object of that post
+
+$user->posts gets you a collection of posts from that user.
+
+
+
+
+
+
+
+

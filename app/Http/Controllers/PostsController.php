@@ -16,13 +16,16 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('auth', ['create', 'store', 'edit', 'update', 'destroy']);
+        // $this->middleware('auth', ['create', 'store', 'edit', 'update', 'destroy']); //SAME AS LINE BELOW
+        $this->middleware('auth', ['except' => ['index', 'show']]);
+        // $this->middleware('auth', ['only'] => ['create', 'store', 'edit', 'update', 'destroy']);
     }
 
     //**INDEX FUNCTION**//
     public function index()
     {
-        $posts = Post::paginate(6);
+        // $posts = App\Models\Post::with('user')->get();
+        $posts = Post::with('user')->paginate(6);
 
         $data = [];
         $data['posts'] = $posts;
@@ -57,7 +60,11 @@ class PostsController extends Controller
         $post->title = $request->title;
         $post->content = $request->content;
         $post->url = $request->url;
-        $post->created_by = User::all()->random()->id;
+        $post->created_by = $loggedInUser = \Auth::id();
+        
+
+        // In the store method of your PostsController, use the Auth class to insert the currently logged-in user's id in the 'created_by' column.
+        // Use the AuthController to ensure that only logged-in users can create posts.
 
         $post->save();
 

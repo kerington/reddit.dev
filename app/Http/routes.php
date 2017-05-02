@@ -24,7 +24,7 @@
 
 Route::get('/from/{start}/to/{end}', 'HomeController@showNumbers');
 
-Route::get('/', 'HomeController@showWelcomePage');
+Route::get('/', 'PostsController@index');
 
 Route::get('/sayhello/{name?}', 'HomeController@sayHello');
 
