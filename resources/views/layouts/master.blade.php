@@ -296,6 +296,10 @@
 			<li>
 				<a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
 			</li>
+			&nbsp;&nbsp;&nbsp;
+			<li>
+				<a href="{{ action('Auth\AuthController@getRegister') }}">Register</a>
+			</li>
 		</ul>
 	</div>
 
