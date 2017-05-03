@@ -16,9 +16,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        // $this->middleware('auth', ['create', 'store', 'edit', 'update', 'destroy']); //SAME AS LINE BELOW
         $this->middleware('auth', ['except' => ['index', 'show']]);
-        // $this->middleware('auth', ['only'] => ['create', 'store', 'edit', 'update', 'destroy']);
     }
 
     //**INDEX FUNCTION**//
@@ -30,17 +28,18 @@ class PostsController extends Controller
             ->where('title', 'LIKE', "%$request->search%")
             ->orWhere('name', 'LIKE', "%$request->search%")
             ->orderBy('created_by', 'ASC')
-            ->paginate(6);
+            ->paginate(6)
+            ->appends(['search' => $request->search]);
+            return view('posts.index')->with('posts', $posts);
         } else {
             $posts = Post::orderBy('created_by', 'ASC')->paginate(6);
+            return view('posts.index')->with('posts', $posts);
         }
 
-        // $posts = Post::with('user')->paginate(6);
+        $data = [];
+        $data['posts'] = $posts;
 
-        // $data = [];
-        // $data['posts'] = $posts;
-
-        // return view('posts.index')->with($data);
+        return view ('posts.index')->with($data);
     }
 
 
@@ -71,10 +70,7 @@ class PostsController extends Controller
         $post->content = $request->content;
         $post->url = $request->url;
         $post->created_by = $loggedInUser = \Auth::id();
-        
 
-        // In the store method of your PostsController, use the Auth class to insert the currently logged-in user's id in the 'created_by' column.
-        // Use the AuthController to ensure that only logged-in users can create posts.
 
         $post->save();
 
@@ -163,12 +159,12 @@ class PostsController extends Controller
 
 
     //**DESTROY FUNCTION**//
-    public function destroy($id)
+    public function destroy(Request $request, $id)
     {
         $post = Post::find($id);
 
         if (!$post) {
-            Log::error("Post with ID of $is not found!");
+            Log::error("Post with ID of $id not found!");
             abort(404);
         }
 

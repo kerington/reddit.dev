@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Reddit!</title>
+    <title>IReadIt!</title>
     <!-- BOOTSTRAP -->
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
@@ -53,8 +53,8 @@
 		#container {
 			width: 100%;
 		}
-		.search_bar {
-			width: 50%;
+		.search {
+			width: 40%;
 			float: left;
 		}
 
@@ -67,24 +67,45 @@
 			text-align: center;
 			border: 1px solid black;
 			width: 30%;
-			/*border-image: url(wood.jpg) 30 round;*/
-			border-image-repeat: stretch;
+			height: 400px;
 			background-color: white;
-			margin-top: 10px;
+			/*margin-top: 10px;*/
 			margin-bottom: 10px;
 			margin-right: 10px;
 			margin-left: 10px;
+			vertical-align: middle;
+		}
+
+		#post_box_show {
+			text-align: center;
+			border: 1px solid black;
+			width: 100%;
+			background-color: white;
+			margin-bottom: 10px;
+			margin-right: 10px;
+			margin-left: 10px;
+			vertical-align: middle;
+		}
+
+		h1 {
+			font-size: 4.5vw;
+			color: #337AB7;
+			font-family: 'Francois One', sans-serif;
+			text-align: center;
 		}
 
 		#post_title {
-			font-size: 4vw;
+			font-size: 3.4vw;
 			color: #337AB7;
 			font-family: 'Francois One', sans-serif;
+			text-align:center;
+			/*margin-top: 15px;*/
 		}
 
 		#post_title a{
 			color: #337AB7;
 			font-family: 'Francois One', sans-serif;
+			text-align:center;
 		}
 
 		.post_content {
@@ -105,7 +126,7 @@
 			font-family: 'Open Sans Condensed', sans-serif;
 		}
 		
-		.click_to_edit {
+		.click_to_edit .click_to_delete {
 			font-size: 1vw;
 			text-align: right;
 			color: #72707E;
@@ -149,19 +170,26 @@
 			}
 
 			#post_box {
-					text-align: center;
-					border: 1px solid black;
-					/*border-image: url(wood.jpg) 30 round;*/
-					border-image-repeat: stretch;
-					background-color: white;
-					margin-top: 10px;
-					margin-bottom: 10px;
-					margin-right: 10px;
-					margin-left: 10px;
-				}
+				text-align: center;
+				border: 1px solid black;
+				width: 30%;
+				height: 400px;
+				background-color: white;
+				/*margin-top: 10px;*/
+				margin-bottom: 10px;
+				margin-right: 10px;
+				margin-left: 10px;
+				vertical-align: middle;
+			}
+
+			h1 {
+				font-size: 4.5vw;
+				color: #337AB7;
+				font-family: 'Francois One', sans-serif;
+			}
 
 			#post_title {
-				font-size: 5.5vw;
+				font-size: 4.5vw;
 				color: #337AB7;
 				font-family: 'Francois One', sans-serif;
 			}
@@ -169,10 +197,11 @@
 			#post_title a{
 				color: #337AB7;
 				font-family: 'Francois One', sans-serif;
+				text-align:center;
 			}
 
 			.post_content {
-				font-size: 3vw;
+				font-size: 2vw;
 				color: #72707E;
 				font-family: 'Open Sans Condensed', sans-serif;
 			}
@@ -208,19 +237,21 @@
 				#post_box {
 					text-align: center;
 					border: 1px solid black;
-					/*border-image: url(wood.jpg) 30 round;*/
-					border-image-repeat: stretch;
+					width: 30%;
+					height: 400px;
 					background-color: white;
-					margin-top: 10px;
+					/*margin-top: 10px;*/
 					margin-bottom: 10px;
 					margin-right: 10px;
 					margin-left: 10px;
+					vertical-align: middle;
 				}
 
 				#post_title {
-					font-size: 5.5vw;
+					font-size: 4.5vw;
 					color: #337AB7;
 					font-family: 'Francois One', sans-serif;
+					text-align:center;
 				}
 
 				#post_title a{
@@ -229,7 +260,7 @@
 				}
 
 				.post_content {
-					font-size: 3vw;
+					font-size: 2.5vw;
 					color: #72707E;
 					font-family: 'Open Sans Condensed', sans-serif;
 				}
@@ -260,6 +291,10 @@
 			&nbsp;&nbsp;&nbsp;
 			<li>
 				<a href="{{ action('Auth\AuthController@getLogout') }}">Logout</a>
+			</li>
+			&nbsp;&nbsp;&nbsp;
+			<li>
+				<a href="{{ action('Auth\AuthController@getLogin') }}">Login</a>
 			</li>
 		</ul>
 	</div>
