@@ -151,7 +151,8 @@ class PostsController extends Controller
         $post->created_by = $request->created_by;
         $post->save();
 
-        $request->session()->flash('successMessage', 'Post updated successfully'); return redirect()->action('PostsController@show', [$post->id]);
+        $request->session()->flash('successMessage', 'Post updated successfully');
+        return redirect()->action('PostsController@show', [$post->id]);
 
         // return view('posts.show')->with($data);
     }

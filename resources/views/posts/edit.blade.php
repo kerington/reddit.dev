@@ -2,7 +2,7 @@
 @section ('content')
 <h1>Edit:</h1>
 
-<form method="POST" action="{{ action('PostsController@store') }}">
+<form method="POST" action="{{ action('PostsController@update') }}">
 {!! csrf_field() !!}
 <h4>Title:</h4>
 
