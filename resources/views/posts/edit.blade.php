@@ -2,8 +2,8 @@
 @section ('content')
 <h1>Edit:</h1>
 
-<form method="POST" action="{{ action('PostsController@update') }}">
-{!! csrf_field() !!}
+	<form method="POST" action="{{ action('PostsController@update', $post->id) }}">
+	{!! csrf_field() !!}
 <h4>Title:</h4>
 
 <input type="text" name="title" value="{{ isset($post->title)? $post->title:old('title' )}}"><br>
@@ -15,5 +15,8 @@
 
 </textarea>
 <input type="submit">
+
+{{ method_field('PUT') }}
+
 </form>
 @stop
